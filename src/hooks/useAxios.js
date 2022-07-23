@@ -8,15 +8,14 @@ axios.defaults.baseURL = baseURL
 
 const useAxios = (axiosParams) => {
 	console.log(axiosParams)
-	const [response, setResponse] = useState()
+	const [response, setResponse] = useState(null)
 
-	const [error, setError] = useState()
+	const [error, setError] = useState(false)
 
 	const [loading, setLoading] = useState(false)
 
 	
 	const fetchData = async (params) => {
-		console.log(JSON.stringify(params))
 		setLoading(true)
 			try {
 				const result = await axios.request(params)
@@ -33,12 +32,12 @@ const useAxios = (axiosParams) => {
 				setLoading(false)
 			}
 	}
-
+/* 
 	useEffect(() => {
     if(axiosParams.method === "GET" || axiosParams.method === "get"){
       fetchData(axiosParams);
     }
-	},[]);
+	},[]); */
 
 	return { response, error, loading, fetchData }
 }
