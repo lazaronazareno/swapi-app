@@ -10,7 +10,7 @@ function PeopleDetails() {
   useEffect(() => {
     fetchData({
       method:"GET",
-      url:`${location.pathname}` ,
+      url:`/people${location.pathname}` ,
     })
   },[])
 

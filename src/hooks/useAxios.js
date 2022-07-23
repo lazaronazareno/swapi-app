@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import axios from 'axios'
 
-const baseURL = 'https://swapi.dev/api/people'
+const baseURL = 'https://swapi.dev/api'
 
 axios.defaults.baseURL = baseURL
 

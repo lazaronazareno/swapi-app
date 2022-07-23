@@ -5,7 +5,7 @@ function PeopleName({people, index}) {
   
   return (
     <div>
-      <Link to={`/${index >= 17 ? index + 1 : index}`}>{people.name}</Link>
+      <Link to={`/characters/${index >= 17 ? index + 1 : index}`}>{people.name}</Link>
 {/*       <span>Gender :{people.gender}</span>
       <span>Birth :{people.birth_year}</span>
       <span>Height :{people.height}</span>

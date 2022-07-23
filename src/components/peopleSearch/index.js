@@ -25,7 +25,7 @@ function PeopleSearch({isSearching}) {
     console.log('handle search search ' + search)
     fetchData({
       method:'GET',
-      url:`/?search=${search}` ,
+      url:`/people/?search=${search}` ,
     })
   }
 

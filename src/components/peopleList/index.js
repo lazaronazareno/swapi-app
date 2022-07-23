@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios'
 import PeopleName from '../peopleName';
 import PeopleSearch from '../peopleSearch';
@@ -7,7 +8,7 @@ function PeopleList() {
   const [page, setPage] = useState(1)
   const {response, loading, error, fetchData} = useAxios({
     method:"GET",
-    url:`/${page === 1 ? '' : `?${page}`}` ,
+    url:`/people/${page === 1 ? '' : `?${page}`}` ,
   })
   const [isSearching, setIsSearching] = useState(null)
   const [newIndex, setNewIndex] = useState(0)
@@ -15,7 +16,7 @@ function PeopleList() {
   useEffect(() => {
     fetchData({
       method:"GET",
-      url:`/${(page === 0 ? `` : `?page=${page}`)}` ,
+      url:`/${(page === 0 ? `` : `people/?page=${page}`)}` ,
     })
   },[page])
   
@@ -54,6 +55,8 @@ function PeopleList() {
           <button onClick={() => nextPage()}>next Page</button> 
         </>
       )}
+
+      <Link to='/'>Back</Link>
       
     </div>
   )
