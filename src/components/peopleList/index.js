@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useAxios from '../../hooks/useAxios'
-import PeopleDetails from '../peopleDetails';
+import PeopleName from '../peopleName';
 import PeopleSearch from '../peopleSearch';
 
 function PeopleList() {
@@ -10,6 +10,7 @@ function PeopleList() {
     url:`/${page === 1 ? '' : `?${page}`}` ,
   })
   const [isSearching, setIsSearching] = useState(null)
+  const [newIndex, setNewIndex] = useState(0)
   
   useEffect(() => {
     fetchData({
@@ -21,12 +22,14 @@ function PeopleList() {
   const prevPage = () => {
     if(page !== 1 && page !== 0) {
       setPage(page - 1)
+      setNewIndex(newIndex - 10)
     }
   }
 
   const nextPage = () => {
     if(page < response.data.count) {
       setPage(page + 1)
+      setNewIndex(newIndex + 10)
     }
   }
 
@@ -43,7 +46,7 @@ function PeopleList() {
       { response && !loading && isSearching === null && (
         <>
           {response.data.results.map((people, index) => (
-            <PeopleDetails key={index} people={people} />
+            <PeopleName key={index} people={people} index={index + 1 + newIndex} />
           ))}
           {page > 1 && (
             <button onClick={() => prevPage()}>prev Page</button> 
