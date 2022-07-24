@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios'
+import ErrorComponent from '../error';
 import PeopleName from '../peopleName';
 import PeopleSearch from '../peopleSearch';
+import Spinner from '../spinner';
 
 function PeopleList() {
   const [page, setPage] = useState(1)
@@ -37,22 +39,26 @@ function PeopleList() {
   console.log('is searching' + isSearching)
 
   return (
-    <div>
-      {loading && (<h1>loading</h1>)}
+    <div className='listContainer'>
+      {loading && (<Spinner />)}
 
-      {error && (<h1>error</h1>)}
+      {error && (<ErrorComponent url={'/'} error={error} />)}
 
       {!loading && (<PeopleSearch isSearching={setIsSearching}/>)}
       
       { response && !loading && isSearching === null && (
         <>
-          {response.data.results.map((people, index) => (
-            <PeopleName key={index} people={people} index={index + 1 + newIndex} />
-          ))}
-          {page > 1 && (
-            <button onClick={() => prevPage()}>prev Page</button> 
-          )}
-          <button onClick={() => nextPage()}>next Page</button> 
+          <div className='listItems'>
+            {response.data.results.map((people, index) => (
+              <PeopleName key={index} people={people} index={index + 1 + newIndex} />
+            ))}
+          </div>
+          <div>
+            {page > 1 && (
+              <button onClick={() => prevPage()}>prev Page</button> 
+            )}
+            <button onClick={() => nextPage()}>next Page</button> 
+          </div>
         </>
       )}
 

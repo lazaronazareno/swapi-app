@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 function PeopleName({people, index}) {
   
   return (
-    <div>
-      <Link to={`/characters/${index >= 17 ? index + 1 : index}`}>{people.name}</Link>
-{/*       <span>Gender :{people.gender}</span>
-      <span>Birth :{people.birth_year}</span>
-      <span>Height :{people.height}</span>
-      <span>Mass :{people.mass}</span>
-      <span>Skin color :{people.skin_color}</span> */}
+    <div className='listItemDiv'>
+      <Link to={`/people/${index >= 17 ? index + 1 : index}`}>
+        <img
+          src={`https://starwars-visualguide.com/assets/img/characters/${index >= 17 ? index + 1 : index}.jpg`}
+          alt={`${people.name}`}
+          onError={(e)=>{e.target.src="https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg" }}
+        />
+        <span></span>{people.name}
+      </Link>
     </div>
   );
 }
