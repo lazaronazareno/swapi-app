@@ -55,14 +55,14 @@ function PeopleList() {
           </div>
           <div>
             {page > 1 && (
-              <button onClick={() => prevPage()}>prev Page</button> 
+              <button className='buttonNavsP' onClick={() => prevPage()}>prev Page</button> 
             )}
-            <button onClick={() => nextPage()}>next Page</button> 
+            <button className='buttonNavsN' onClick={() => nextPage()}>next Page</button> 
           </div>
         </>
       )}
 
-      <Link to='/'>Back</Link>
+      <Link className='button' to='/'>Back</Link>
       
     </div>
   )

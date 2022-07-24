@@ -11,7 +11,7 @@ function PeopleName({people, index}) {
           alt={`${people.name}`}
           onError={(e)=>{e.target.src="https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg" }}
         />
-        <span></span>{people.name}
+        <span>{people.name}</span>
       </Link>
     </div>
   );

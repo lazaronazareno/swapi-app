@@ -14,8 +14,8 @@ const Home = () => {
   return (
     <div className='homeContainer'>
       {List.map((list, index) => (
-        <div>
-          <Link to={list.url} key={index}>
+        <div key={index}>
+          <Link to={list.url}>
             <img src={`https://starwars-visualguide.com/assets/img/categories/${list.name}.jpg`} alt={`Star Wars ${list.name}`}/>
             <span>{list.name}</span>
           </Link>
