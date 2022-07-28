@@ -9,7 +9,13 @@ import Spinner from '../spinner';
 function PeopleDetails() {
   const location = useLocation()
   const {response, loading, error, fetchData} = useAxios({})
-  const [newData, setNewData] = useState()
+  const [newData, setNewData] = useState({
+    planets: {},
+    species : {},
+    starships : {},
+    films : {},
+    vehicles : {}
+  })
   const title = location.pathname
   const newTitle = title.replace('people/', '')
 
@@ -24,15 +30,20 @@ function PeopleDetails() {
   const fetchNewData = async () => {
     if(response) {
       const homeworld = await axios.get(response.data.homeworld)
-      const newHome = await homeworld.data
-      setNewData(newHome)
-      console.log(newData)
+      const starshipsList = []
+      Promise.all(response.data.starships).then((responses) => {
+        responses.map((sResponse) => axios.get(sResponse).then(response => starshipsList.push(response.data)))
+      })
+ /*      const species = await axios.get(response.data.species)
+      const films = await axios.get(response.data.films)
+      const vehicles = await axios.get(response.data.vehicles) */
+      const newPlanet = await homeworld.data
+      setNewData({...newData, planets : newPlanet, starships: starshipsList})
     }
   }
-  
-  console.log(newData)
-  console.log(response)
 
+  console.log(newData)
+  
   return (
     <div className='detailsContainer'>
       {loading && (<Spinner />)}
@@ -48,12 +59,20 @@ function PeopleDetails() {
             </div>
             <div className='detailsInfo'>
               {Object.entries(response.data).map((data, index) => {
-                return <span key={index}>
+                if (data[1] === response.data.name || data[1] === response.data.url ) {
+                  return <span key={index}></span>
+                } else if (Array.isArray(data[1])) {
+                  data[1].map((dataList, index) => <span key={index}>(`${dataList}, `)</span>)
+                } else if (data[1] === newData.planets.url) {
+                  return <span key={index}>{data[0]} : {newData.planets.name}</span>
+                }
+                return <span key={index}>{`${data[0]} : ${data[1]} `}</span>
+/*                 return <span key={index}>
                   {data[1] === response.data.name ? '' : `${data[0]} : `}
                   {Array.isArray(data[1]) ?
                    data[1].map((dataList, index) => (`${dataList}, `)) :
                   (data[1] === response.data.name ? '' : data[1] === newData?.url ? newData?.name : data[1])}
-                  </span>
+                  </span> */
               })}
             </div>
           </div>

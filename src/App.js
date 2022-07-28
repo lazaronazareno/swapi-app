@@ -16,7 +16,7 @@ const planetsList = ['/planets', 'name']
 function App() {
   return (
     <div className="App">
-      <h1>Star Wars Encyclopedia</h1>
+      <h1 className='mainTitle'>Star Wars Encyclopedia</h1>
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}/>

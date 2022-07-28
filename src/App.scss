@@ -12,12 +12,21 @@ $textSecondary:#000000;
 .App {
   text-align: center;
   background-color: $primaryColor;
+  font-family: 'Open Sans Condensed', sans-serif;
   color: $textPrimary;
   min-width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.mainTitle {
+  font-size: 10vh;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1vh solid $secondaryColor;
+  margin: 0;
 }
 
 h1 {
@@ -46,6 +55,9 @@ img {
 
 .homeContainer img {
   width: 50vh;
+  margin-bottom: auto;
+  mask-image: linear-gradient(transparent, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient( to right,transparent, black 0%, black 60%, transparent 100%);
 }
 
 .listContainer {
@@ -67,6 +79,11 @@ img {
   }
 }
 
+.homeContainer div {
+  padding: 0;
+  width: 100%;
+}
+
 .homeContainer a, .listItemDiv a {
   color: $textPrimary;
   align-items: center;
@@ -74,6 +91,17 @@ img {
   font-size: x-large;
   display: flex;
   flex-direction: column;
+}
+
+.homeContainer a {
+  flex-direction: row;
+  width: 100%;
+  height: 12vh;
+  overflow: hidden;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 10vh;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .listItemDiv a{
@@ -168,8 +196,8 @@ img {
 .button {
   @extend %button;
   position: absolute;
-  top: 5vh;
-  right: 5vh;
+  top: 15vh;
+  right: 1vh;
 }
 
 .buttonClose {
@@ -193,6 +221,6 @@ img {
   @extend %button;
   width: 15vh;
   position: absolute;
-  right: 5vh;
+  right: 1vh;
   bottom: 1vh;
 }
