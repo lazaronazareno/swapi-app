@@ -35,6 +35,10 @@ h1 {
 
 a {
   text-decoration: none;
+  &:active, &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 img {
@@ -149,6 +153,23 @@ img {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+}
+
+.detailsInfoImg {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+  color: inherit;
+}
+
+.detailsInfoImg a {
+  color: inherit;
+}
+
+.detailsInfoImgsDiv {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .formContainer {

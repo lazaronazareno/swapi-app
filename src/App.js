@@ -7,11 +7,11 @@ import List from './components/list';
 import Details from './components/details';
 import NotFound from './components/notFound';
 
-const filmsList = ['/films', 'title']
-const starshipsList = ['/starships', 'name']
-const vehiclesList = ['/vehicles', 'name']
-const speciesList = ['/species', 'name']
-const planetsList = ['/planets', 'name']
+const filmsList = ['/films', 'title', ['people', 'species', 'starships', 'vehicles', 'planets']]
+const starshipsList = ['/starships', 'name', ['films', 'pilots']]
+const vehiclesList = ['/vehicles', 'name', ['films', 'pilots']]
+const speciesList = ['/species', 'name', ['films', 'species']]
+const planetsList = ['/planets', 'name', ['films', 'residents']]
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path='/people/:id' element={<PeopleDetails/>}/>
 
         <Route path='/films' element={<List listUrl={filmsList[0]} listTitle={filmsList[1]} />}/>
-        <Route path='/films/:id' element={<Details detailsUrl={filmsList[0]}/>}/>
+        <Route path='/films/:id' element={<Details detailsUrl={filmsList[0]} axiosList={filmsList[2]}/>}/>
 
         <Route path='/starships' element={<List listUrl={starshipsList[0]} listTitle={starshipsList[1]} />}/>
         <Route path='/starships/:id' element={<Details detailsUrl={starshipsList[0]}/>}/>

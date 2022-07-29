@@ -11,6 +11,8 @@ const Details = ({detailsUrl}) => {
   const title = location.pathname
   const newTitle = title.replace({detailsUrl}, '').slice(0,-1)
   console.log(newTitle)
+  const newLink = newTitle.concat('/https://swapi.dev/api/')
+  console.log(newLink)
 
   useEffect(() => {
     fetchData({
@@ -38,7 +40,7 @@ const Details = ({detailsUrl}) => {
             </div>
             <div className='detailsInfo'>
               {Object.entries(response.data).map((data, index) => {
-                return <span key={index}>{data[1] === response.data.name ? '' : `${data[0]} : `}{Array.isArray(data[1]) ? data[1].map((dataList, index) => (`${dataList}, `)) : (data[1] === response.data.name ? '' : data[1])}</span>
+                return <span key={index}>{data[1] === response.data.name ? '' : `${data[0]} : `}{Array.isArray(data[1]) ? data[1].slice(0,1).map((dataList, index) => (<Link to={dataList.replace('https://swapi.dev/api/', '')}>{dataList.replace('https://swapi.dev/api/', '')}</Link>)) : (data[1] === response.data.name ? '' : data[1])}</span>
               })}
             </div>
           </div>
