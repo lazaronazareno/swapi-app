@@ -16,7 +16,6 @@ const planetsList = ['/planets', 'name', ['films', 'residents']]
 function App() {
   return (
     <div className="App">
-      <h1 className='mainTitle'>Star Wars Encyclopedia</h1>
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}/>
@@ -38,7 +37,7 @@ function App() {
         <Route path='/planets' element={<List listUrl={planetsList[0]} listTitle={planetsList[1]} />}/>
         <Route path='/planets/:id' element={<Details detailsUrl={planetsList[0]}/>}/>
 
-        <Route element={<NotFound />}/>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
       </BrowserRouter>
     </div>

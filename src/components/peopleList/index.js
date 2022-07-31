@@ -40,6 +40,7 @@ function PeopleList() {
 
   return (
     <div className='listContainer'>
+      <h1 className='listTitle'>Characters</h1>
       {loading && (<Spinner />)}
 
       {error && (<ErrorComponent url={'/'} error={error} />)}

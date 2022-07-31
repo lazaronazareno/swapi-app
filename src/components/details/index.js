@@ -31,7 +31,7 @@ const Details = ({detailsUrl}) => {
         <>
           <div className='detailsItems'>
             <div className='titleContainer'>
-              <h1 className='title'>{response.data.name}</h1>
+              <h1 className='title'>{response.data.name ? response.data.name : response.data.title}</h1>
               <img
                 src={`https://starwars-visualguide.com/assets/img${newTitle}.jpg`}
                 alt={`${response.data.name}`}
@@ -40,7 +40,7 @@ const Details = ({detailsUrl}) => {
             </div>
             <div className='detailsInfo'>
               {Object.entries(response.data).map((data, index) => {
-                return <span key={index}>{data[1] === response.data.name ? '' : `${data[0]} : `}{Array.isArray(data[1]) ? data[1].slice(0,1).map((dataList, index) => (<Link to={dataList.replace('https://swapi.dev/api/', '')}>{dataList.replace('https://swapi.dev/api/', '')}</Link>)) : (data[1] === response.data.name ? '' : data[1])}</span>
+                return <span key={index}>{data[1] === response.data.name ? '' : `${data[0]} : `}{Array.isArray(data[1]) ? data[1].slice(0,1).map((dataList, index) => (<Link to={response.data.name ? response.data.name : response.data.title}>{dataList.replace('https://swapi.dev/api/', '')}</Link>)) : (data[1] === response.data.name ? '' : data[1])}</span>
               })}
             </div>
           </div>

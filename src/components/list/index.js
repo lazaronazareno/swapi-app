@@ -41,6 +41,7 @@ const List = ({ listUrl, listTitle }) => {
       
       { response && !loading && (
         <>
+        <h1 className='listTitle'>{listTitle}</h1>
           <div className='listItems'>
             {response.data.results.map((list, index) => (
               <div className='listItemDiv' key={index}>
