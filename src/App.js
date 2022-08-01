@@ -19,24 +19,30 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/people' element={<PeopleList />}/>
-        <Route path='/people/:id' element={<PeopleDetails/>}/>
-
-        <Route path='/films' element={<List listUrl={filmsList[0]} listTitle={filmsList[1]} />}/>
-        <Route path='/films/:id' element={<Details detailsUrl={filmsList[0]} axiosList={filmsList[2]}/>}/>
-
-        <Route path='/starships' element={<List listUrl={starshipsList[0]} listTitle={starshipsList[1]} />}/>
-        <Route path='/starships/:id' element={<Details detailsUrl={starshipsList[0]}/>}/>
-
-        <Route path='/vehicles' element={<List listUrl={vehiclesList[0]} listTitle={vehiclesList[1]} />}/>
-        <Route path='/vehicles/:id' element={<Details detailsUrl={vehiclesList[0]}/>}/>
-
-        <Route path='/species' element={<List listUrl={speciesList[0]} listTitle={speciesList[1]} />}/>
-        <Route path='/species/:id' element={<Details detailsUrl={speciesList[0]}/>}/>
-
-        <Route path='/planets' element={<List listUrl={planetsList[0]} listTitle={planetsList[1]} />}/>
-        <Route path='/planets/:id' element={<Details detailsUrl={planetsList[0]}/>}/>
-
+        <Route path='people'>
+          <Route path=':id' element={<PeopleDetails/>}/>
+          <Route index element={<PeopleList />} />
+        </Route>
+        <Route path='films' >
+          <Route path=':id' element={<Details detailsUrl={filmsList[0]} axiosList={filmsList[2]}/>}/>
+          <Route index element={<List listUrl={filmsList[0]} listTitle={filmsList[1]} />} />
+        </Route>
+        <Route path='starships' >
+          <Route path=':id' element={<Details detailsUrl={starshipsList[0]}/>}/>
+          <Route index element={<List listUrl={starshipsList[0]} listTitle={starshipsList[1]} />} />
+        </Route>
+        <Route path='vehicles' >
+          <Route path=':id' element={<Details detailsUrl={vehiclesList[0]}/>}/>
+          <Route index element={<List listUrl={vehiclesList[0]} listTitle={vehiclesList[1]} />} />
+        </Route>
+        <Route path='species' >
+          <Route path=':id' element={<Details detailsUrl={speciesList[0]}/>}/>
+          <Route index element={<List listUrl={speciesList[0]} listTitle={speciesList[1]} />} />
+        </Route>
+        <Route path='planets' >
+          <Route path=':id' element={<Details detailsUrl={planetsList[0]}/>}/>
+          <Route index element={<List listUrl={planetsList[0]} listTitle={planetsList[1]} />} />
+        </Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>
       </BrowserRouter>

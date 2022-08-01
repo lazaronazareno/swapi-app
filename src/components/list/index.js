@@ -65,7 +65,7 @@ const List = ({ listUrl, listTitle }) => {
         </>
       )}
 
-      <Link className='button' to='/'>Back</Link>
+      <Link className='button' to={-1}>Back</Link>
     </div>
   );
 };

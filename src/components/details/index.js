@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom"
 import useAxios from '../../hooks/useAxios'
 import ErrorComponent from '../error';
+import Homeworld from '../newData/homeworld';
+import NewData from '../newData/newData';
 import Spinner from '../spinner';
 
 
@@ -40,11 +42,24 @@ const Details = ({detailsUrl}) => {
             </div>
             <div className='detailsInfo'>
               {Object.entries(response.data).map((data, index) => {
-                return <span key={index}>{data[1] === response.data.name ? '' : `${data[0]} : `}{Array.isArray(data[1]) ? data[1].slice(0,1).map((dataList, index) => (<Link to={response.data.name ? response.data.name : response.data.title}>{dataList.replace('https://swapi.dev/api/', '')}</Link>)) : (data[1] === response.data.name ? '' : data[1])}</span>
+                if (data[1] === response.data.name || data[1] === response.data.url ) {
+                  return <span key={index}></span>
+                }
+                else if (Array.isArray(data[1])) {
+                  return <span className='detailsInfoImgs' key={index}>{data[0]} : 
+                    <div className='detailsInfoImgsDiv'>
+                      {data[1].map(dataList => {
+                        return <NewData url={dataList} />
+                      })}
+                    </div>
+                  </span>
+                } else {
+                  return <span key={index}>{`${data[0]} : ${data[1]} `}</span>
+                }
               })}
             </div>
           </div>
-          <Link className='button' to={detailsUrl}>Back</Link>
+          <Link className='button' to={-1}>Back</Link>
         </>
       )}
 

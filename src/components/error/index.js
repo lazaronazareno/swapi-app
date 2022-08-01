@@ -6,7 +6,7 @@ const ErrorComponent = ({error, url}) => {
   return (
     <div>
       <h1>{error.message}</h1>
-      <Link className='button' to={url}>Back</Link>
+      <Link className='button' to={-1}>Back</Link>
     </div>
   );
 };

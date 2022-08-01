@@ -5,7 +5,7 @@ function PeopleName({people, index}) {
   
   return (
     <div className='listItemDiv'>
-      <Link to={`/people/${index >= 17 ? index + 1 : index}`}>
+      <Link to={`/people/${index >= 17 ? index + 1 : index}/`}>
         <img
           src={`https://starwars-visualguide.com/assets/img/characters/${index >= 17 ? index + 1 : index}.jpg`}
           alt={`${people.name}`}
