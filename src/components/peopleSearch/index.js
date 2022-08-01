@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios'
 import ErrorComponent from '../error';
 import Spinner from '../spinner';
+import './search.scss'
 
 function PeopleSearch({isSearching}) {
   const [search, setSearch] = useState(null)

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './home.scss'
 
 const List = [
   {url: '/people', name:'character'},

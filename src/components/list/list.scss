@@ -1,0 +1,58 @@
+@import '../../App.scss';
+
+.listTitle {
+  text-transform: uppercase;
+  font-size: 7vh;
+  margin: 0;
+  margin-bottom: 1vh;
+  border-bottom: 1vh solid $secondaryColor;
+}
+
+.listItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.listContainer {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.listItemDiv {
+  text-transform: capitalize;
+  width: 40%;
+  :hover{
+    background-color: $secondaryColor;
+    color: $textSecondary;
+  }
+}
+
+.listItemDiv a {
+  color: $textPrimary;
+  align-items: center;
+  font-weight: 600;
+  font-size: x-large;
+  display: flex;
+  flex-direction: column;
+}
+
+.listItemDiv a{
+  font-size: 5vh;
+  text-transform: uppercase;
+  font-weight: 600;
+  height: 15vh;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.listItemDiv a img {
+  mask-image: linear-gradient(transparent, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient( to right,transparent, black 0%, black 60%, transparent 100%);
+  width: 7vw;
+}

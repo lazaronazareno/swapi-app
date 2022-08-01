@@ -5,6 +5,7 @@ import ErrorComponent from '../error';
 import Homeworld from '../newData/homeworld';
 import NewData from '../newData/newData';
 import Spinner from '../spinner';
+import './details.scss';
 
 
 const Details = ({detailsUrl}) => {
@@ -12,9 +13,6 @@ const Details = ({detailsUrl}) => {
   const {response, loading, error, fetchData} = useAxios({})
   const title = location.pathname
   const newTitle = title.replace({detailsUrl}, '').slice(0,-1)
-  console.log(newTitle)
-  const newLink = newTitle.concat('/https://swapi.dev/api/')
-  console.log(newLink)
 
   useEffect(() => {
     fetchData({
@@ -48,11 +46,17 @@ const Details = ({detailsUrl}) => {
                 else if (Array.isArray(data[1])) {
                   return <span className='detailsInfoImgs' key={index}>{data[0]} : 
                     <div className='detailsInfoImgsDiv'>
-                      {data[1].map(dataList => {
-                        return <NewData url={dataList} />
+                      {data[1].map((dataList, index) => {
+                        return <NewData url={dataList} key={index}/>
                       })}
                     </div>
                   </span>
+                } else if (data[1] === response.data['homeworld']) {
+                  return <span className='detailsInfoPlanetImg' key={index}>{data[0]} :<Homeworld url={response.data['homeworld']} /></span>
+                  
+                } else if (data[0] === 'created' || data[0] === 'edited') {
+                  return <span key={index}></span>
+                  
                 } else {
                   return <span key={index}>{`${data[0]} : ${data[1]} `}</span>
                 }

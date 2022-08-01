@@ -22,7 +22,7 @@ const Homeworld = ({url}) => {
       {error && (<ErrorComponent url={url} error={error} />)}
 
       { response && !loading && (
-        <Link className='detailsInfoImg' to={response.data.url.replace('https://swapi.dev/api', '')}>
+        <Link className='detailsInfoImg' reloadDocument to={response.data.url.replace('https://swapi.dev/api', '')}>
           <img
             src={`https://starwars-visualguide.com/assets/img${response.data.url.replace('https://swapi.dev/api', '').slice(0, -1)}.jpg`}
             alt={`${response.data.name}`}

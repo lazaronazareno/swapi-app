@@ -1,0 +1,21 @@
+@import '../../App.scss';
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+
+.formDiv {
+  display: flex;
+}
+
+.formContainer input {
+  border: none;
+  border-bottom: solid 1vh $secondaryColor;
+  margin: 1vh 0vh;
+  height: 3vh;
+  text-transform: uppercase;
+  width: 70vw;
+}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useAxios from '../../hooks/useAxios'
 import ErrorComponent from '../error';
 import Spinner from '../spinner';
+import './list.scss'
 
 const List = ({ listUrl, listTitle }) => {
   const [page, setPage] = useState(1)
