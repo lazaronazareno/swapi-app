@@ -1,0 +1,49 @@
+@import '../../App.scss';
+
+.footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: $primaryLightColor;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+}
+
+.text-copy {
+  margin-right: auto;
+  font-size: small;
+}
+
+.footer-text {
+  color: $textPrimary!important;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 5px;
+  position: relative;
+  font-size: 2.5vh;
+  cursor: pointer;
+  margin-left: 2vh;
+  font-weight: 600;
+
+  &:hover {
+    color: $secondaryColor!important;
+  }
+
+  &:active {
+    box-shadow: $secondaryDarkColor 2px 2px 0 0;
+    transform: translate(2px, 2px);
+  }
+}
+
+@media (max-width: 850px) {
+  .footer-text {
+    font-size: 2.5vh!important;
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-text {
+    font-size: 2vh!important;
+  }
+}

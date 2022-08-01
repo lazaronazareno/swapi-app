@@ -5,7 +5,7 @@ const ErrorComponent = ({error, url}) => {
   console.log(error)
   return (
     <div>
-      <h1>{error.message}</h1>
+      <span>{error.message}</span>
       <Link className='button' to={-1}>Back</Link>
     </div>
   );

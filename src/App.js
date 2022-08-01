@@ -6,6 +6,7 @@ import Home from './components/home';
 import List from './components/list';
 import Details from './components/details';
 import NotFound from './components/notFound';
+import Footer from './components/footer';
 
 const filmsList = ['/films', 'title', ['people', 'species', 'starships', 'vehicles', 'planets']]
 const starshipsList = ['/starships', 'name', ['films', 'pilots']]
@@ -46,6 +47,7 @@ function App() {
         <Route path='*' element={<NotFound />}/>
       </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

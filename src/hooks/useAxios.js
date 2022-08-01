@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import axios from 'axios'
 
@@ -7,7 +7,6 @@ const baseURL = 'https://swapi.dev/api'
 axios.defaults.baseURL = baseURL
 
 const useAxios = (axiosParams) => {
-	console.log(axiosParams)
 	const [response, setResponse] = useState(null)
 
 	const [error, setError] = useState(false)
@@ -32,12 +31,6 @@ const useAxios = (axiosParams) => {
 				setLoading(false)
 			}
 	}
-/* 
-	useEffect(() => {
-    if(axiosParams.method === "GET" || axiosParams.method === "get"){
-      fetchData(axiosParams);
-    }
-	},[]); */
 
 	return { response, error, loading, fetchData }
 }

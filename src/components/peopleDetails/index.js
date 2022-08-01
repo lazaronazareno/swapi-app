@@ -49,8 +49,11 @@ function PeopleDetails() {
                     </div>
                   </span>
                 } else if (data[1] === response.data['homeworld']) {
-                  return <span className='detailsInfoImgs' key={index}>{data[0]} :<Homeworld url={response.data['homeworld']} /></span>
+                  return <span className='detailsInfoPlanetImg' key={index}>{data[0]} :<Homeworld url={response.data['homeworld']} /></span>
                     
+                } else if (data[0] === 'created' || data[0] === 'edited') {
+                  return <span key={index}></span>
+                  
                 } else {
                   return <span key={index}>{`${data[0]} : ${data[1]} `}</span>
                 }
