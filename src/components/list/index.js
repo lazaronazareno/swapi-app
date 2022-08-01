@@ -41,29 +41,26 @@ const List = ({ listUrl, listTitle }) => {
       {error && (<ErrorComponent url={'/'} error={error} />)}
       
       { response && !loading && (
-        <>
-        <h1 className='listTitle'>{listTitle}</h1>
-          <div className='listItems'>
-            {response.data.results.map((list, index) => (
-              <div className='listItemDiv' key={index}>
-                <Link to={list.url.replace('https://swapi.dev/api', '')}>
-                  <img
-                  src={`https://starwars-visualguide.com/assets/img${listUrl}/${parseFloat(list.url.match(/(\d+)/)[0])}.jpg`}
-                  alt={`${list.name}`}
-                  onError={(e)=>{e.target.src="https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg" }}
-                  />
-                  <span>{list[listTitle]}</span>
-                </Link>
-              </div>
-            ))}
-            {page > 1 && (
-              <button className='buttonNavsP' onClick={() => prevPage()}>prev Page</button> 
-            )}
-            {response.data.results.length === 10 && (
-              <button className='buttonNavsN' onClick={() => nextPage()}>next Page</button> 
-            )}
-          </div>
-        </>
+        <div className='listItems'>
+          {response.data.results.map((list, index) => (
+            <div className='listItemDiv' key={index}>
+              <Link to={list.url.replace('https://swapi.dev/api', '')}>
+                <img
+                src={`https://starwars-visualguide.com/assets/img${listUrl}/${parseFloat(list.url.match(/(\d+)/)[0])}.jpg`}
+                alt={`${list.name}`}
+                onError={(e)=>{e.target.src="https://filestore.community.support.microsoft.com/api/images/ext?url=https%3A%2F%2Fanswersstaticfilecdnv2.azureedge.net%2Fstatic%2Fimages%2Fimage-not-found.jpg" }}
+                />
+                <span>{list[listTitle]}</span>
+              </Link>
+            </div>
+          ))}
+          {page > 1 && (
+            <button className='buttonNavsP' onClick={() => prevPage()}>prev Page</button> 
+          )}
+          {response.data.results.length === 10 && (
+            <button className='buttonNavsN' onClick={() => nextPage()}>next Page</button> 
+          )}
+        </div>
       )}
 
       <Link className='button' to={-1}>Back</Link>

@@ -14,7 +14,6 @@ const List = [
 const Home = () => {
   return (
     <>
-      <h1 className='mainTitle'>Star Wars Encyclopedia</h1>
       <div className='homeContainer'>
         {List.map((list, index) => (
           <div key={index}>

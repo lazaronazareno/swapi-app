@@ -18,7 +18,6 @@ $textSecondary:#000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   text-transform: uppercase;
 }
 
@@ -64,10 +63,10 @@ img {
 }
 
 %button {
-  height: 7vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
-  width: 20vh;
+  width: 30vh;
   align-self: center;
   align-items: center;
   background-color: #ffee32;
@@ -84,12 +83,15 @@ img {
   &:hover {
     box-shadow: $textPrimary 0 0 0 3px, transparent 0 0 0 0;
   }
+  &:active {
+    color: $textSecondary
+  }
 }
 
 .button {
   @extend %button;
   position: absolute;
-  top: 2vh;
+  top: 3vh;
   left: 2vh;
 }
 
@@ -106,12 +108,12 @@ img {
   @extend %button;
   position: absolute;
   left: 1vh;
-  bottom: 1vh;
+  bottom: 3vh;
 }
 
 .buttonNavsN {
   @extend %button;
   position: absolute;
   right: 1vh;
-  bottom: 1vh;
+  bottom: 3vh;
 }

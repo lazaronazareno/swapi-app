@@ -6,8 +6,7 @@
   width: 100%;
   background-color: $primaryLightColor;
   justify-content: flex-end;
-  position: fixed;
-  bottom: 0;
+  margin-top: auto;
 }
 
 .text-copy {
@@ -25,25 +24,17 @@
   cursor: pointer;
   margin-left: 2vh;
   font-weight: 600;
-
   &:hover {
     color: $secondaryColor!important;
   }
-
   &:active {
     box-shadow: $secondaryDarkColor 2px 2px 0 0;
     transform: translate(2px, 2px);
   }
-}
-
-@media (max-width: 850px) {
-  .footer-text {
+  @media (max-width: 850px) {
     font-size: 2.5vh!important;
   }
-}
-
-@media (max-width: 650px) {
-  .footer-text {
+  @media (max-width: 650px) {
     font-size: 2vh!important;
   }
 }

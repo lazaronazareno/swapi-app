@@ -1,0 +1,17 @@
+@import '../../App.scss';
+
+.header {
+  background-color: $primaryDarkColor;
+  display: flex;
+  justify-content: center;
+  width: -webkit-fill-available;
+  top: 0;
+  padding: 3vh;
+  border-bottom: 1vh solid $secondaryColor;
+}
+
+.header a {
+  font-size: 5vh;
+  font-weight: 600;
+  color: $textPrimary!important;
+}
