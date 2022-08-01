@@ -7,11 +7,21 @@
   background-color: $primaryLightColor;
   justify-content: flex-end;
   margin-top: auto;
+  @media screen and (max-width:500px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .text-copy {
   margin-right: auto;
   font-size: small;
+  @media (max-width: 850px) {
+    font-size: 2.5vh!important;
+  }
+  @media (max-width: 650px) {
+    font-size: 2vh!important;
+  }
 }
 
 .footer-text {

@@ -15,6 +15,9 @@
   border: 2px solid;
   padding: 3vh;
   margin: 2vh;
+  @media screen and (max-width:650px) {
+    border: none;
+  }
 }
 
 .detailsInfo {
@@ -23,6 +26,9 @@
   justify-content: space-evenly;
   align-content: space-evenly;
   min-height: 50vh;
+  @media screen and (max-width:650px) {
+    flex-direction: column;
+  }
 }
 
 .detailsInfo span {
@@ -41,10 +47,18 @@
   justify-content: center;
   color: inherit;
   overflow: hidden;
+  @media screen and (max-width:650px) {
+    width: 25vw;
+    height: 25vh;
+    justify-content: unset;
+  }
 }
 
 .detailsInfoImg img {
   width: 5vw;
+  @media screen and (max-width:650px) {
+    width: 32vw;
+  }
 }
 
 .detailsInfoImg a {
@@ -54,6 +68,9 @@
 .detailsInfoImgs {
   width: 45%;
   border: none!important;
+  @media screen and (max-width:650px) {
+    width: 90%;
+  }
 }
 
 .detailsInfoPlanetImg {

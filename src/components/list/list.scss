@@ -1,13 +1,5 @@
 @import '../../App.scss';
 
-.listTitle {
-  text-transform: uppercase;
-  font-size: 7vh;
-  margin: 0;
-  margin-bottom: 1vh;
-  border-bottom: 1vh solid $secondaryColor;
-}
-
 .listItems {
   display: flex;
   flex-wrap: wrap;
@@ -15,6 +7,9 @@
   align-items: center;
   min-height: 80vh;
   width: 100%;
+  @media screen and (max-width:500px) {
+    flex-direction: column;
+  }
 }
 
 .listContainer {
@@ -32,28 +27,34 @@
     background-color: $secondaryColor;
     color: $textSecondary;
   }
+  
+  a {
+    color: $textPrimary;
+    align-items: center;
+    display: flex;
+    font-size: 5vh;
+    text-transform: uppercase;
+    font-weight: 600;
+    height: 15vh;
+    overflow: hidden;
+
+    @media screen and (max-width:500px) {
+      font-size: 4vh;
+    }
+  }
+
+  a img {
+    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient( to right,transparent, black 0%, black 60%, transparent 100%);
+    width: 7vw;
+
+    @media screen and (max-width:500px) {
+      width: 20vw;
+    }
+  }
+
+  @media screen and (max-width:500px) {
+    width: 90%;
+  }
 }
 
-.listItemDiv a {
-  color: $textPrimary;
-  align-items: center;
-  font-weight: 600;
-  font-size: x-large;
-  display: flex;
-  flex-direction: column;
-}
-
-.listItemDiv a{
-  font-size: 5vh;
-  text-transform: uppercase;
-  font-weight: 600;
-  height: 15vh;
-  overflow: hidden;
-  flex-direction: row;
-}
-
-.listItemDiv a img {
-  mask-image: linear-gradient(transparent, black 20%, black 80%, transparent 100%);
-  -webkit-mask-image: linear-gradient( to right,transparent, black 0%, black 60%, transparent 100%);
-  width: 7vw;
-}

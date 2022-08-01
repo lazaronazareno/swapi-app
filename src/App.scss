@@ -43,6 +43,9 @@ a {
 
 img {
   width: 10vw;
+  @media screen and (max-width:500px) {
+    width: 25vw ;
+  }
 }
 
 .title {
@@ -60,6 +63,11 @@ img {
 .titleContainer h1 {
   background-color: $secondaryColor;
   width: 100%;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 %button {
@@ -93,6 +101,9 @@ img {
   position: absolute;
   top: 3vh;
   left: 2vh;
+  @media screen and (max-width:500px) {
+    width: 18vw;
+  }
 }
 
 .buttonClose {
@@ -101,7 +112,9 @@ img {
 
 .buttonSearch {
   @extend %button;
-  height: 1vh
+  @media screen and (max-width:500px) {
+    width: 20vh;
+  }
 }
 
 .buttonNavsP {
@@ -109,6 +122,10 @@ img {
   position: absolute;
   left: 1vh;
   bottom: 3vh;
+  @media screen and (max-width:500px) {
+    position: sticky;
+    width: 42vw;
+  }
 }
 
 .buttonNavsN {
@@ -116,4 +133,20 @@ img {
   position: absolute;
   right: 1vh;
   bottom: 3vh;
+  @media screen and (max-width:500px) {
+    position: sticky;
+    width: 42vw;
+  }
+}
+
+.notfoundContainer {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $secondaryColor;
+  h1 {
+    font-size: 10vh;
+  }
 }

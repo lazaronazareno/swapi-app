@@ -9,13 +9,17 @@
 
 .formDiv {
   display: flex;
-}
 
-.formContainer input {
-  border: none;
-  border-bottom: solid 1vh $secondaryColor;
-  margin: 1vh 0vh;
-  height: 3vh;
-  text-transform: uppercase;
-  width: 70vw;
+  input {
+    border: none;
+    border-bottom: solid 1vh $secondaryColor;
+    margin: 1vh 0vh;
+    height: 3vh;
+    text-transform: uppercase;
+    width: 70vw;
+    @media screen and (max-width:500px) {
+      width: 55vw;
+      height: 4vh;
+    }
+  }
 }

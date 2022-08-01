@@ -53,7 +53,7 @@ function PeopleList() {
               <PeopleName key={index} people={people} index={index + 1 + newIndex} />
             ))}
           </div>
-          <div>
+          <div className='buttonsContainer'>
             {page > 1 && (
               <button className='buttonNavsP' onClick={() => prevPage()}>prev Page</button> 
             )}
